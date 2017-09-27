@@ -1,0 +1,13 @@
+//union two up 
+int union(int m;A[];int n;int B[];int C[]){
+	int i=0,j=0,k=0;
+	while(i<m&&j<n){
+		if(A[i]<B[j]){
+			C[k++]=A[i++];
+		}
+		else
+			C[k++]=B[j++];
+	}
+	while(i<n) C[k++]=A[i++];
+	while(j<m)  C[k++]=B[j++];
+}

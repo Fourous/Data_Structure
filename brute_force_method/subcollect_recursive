@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define n 5
+void backstrack(int *w,int step,int *s){
+	if(step==n){
+
+for(int i=0;i<n;i++){
+		printf("%d",s[i]);
+	}	
+	printf("\n");
+for(int j=0;j<n;j++){
+	if(s[j]){
+		printf("%d",w[j]);
+		}
+	}
+	printf("\n");
+}
+	else
+	{
+		for(int i=0;i<2;i++){
+			s[step]=i;
+			backstrack(w,step+1,s);
+			}
+		}
+	
+	}
+
+int main(){
+	int w[5]={1,2,3,4,5};
+	int s[5]={0};
+	backstrack(w,0,s);
+	return 0;
+	}

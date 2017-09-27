@@ -1,0 +1,21 @@
+#define MaxWeight=N;
+
+void backtrack(n,step){
+	if (step==n)
+{
+	printf("%d\n",w[i] );
+}
+         else{
+	for (int i = 0; i < 2; ++i)
+	{
+		w[step]=i;
+		backtrack(step+1);
+	}
+}
+printf("%d\n",w[i] );
+}
+
+int main(void)
+{
+	backtrack(5,0);
+}

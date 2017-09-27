@@ -1,0 +1,14 @@
+int BubbleSort(int r[],int n){
+	int bound,exchange=n-1;
+	while(exchange!=0){
+		bound=exchange;exchange=0;
+		for (int i = 0; i < bound; ++i)
+		{
+			if (r[i]>r[i+1])
+			{
+				int temp=r[i];r[i]=r[i+1];r[i]=temp;
+				exchange=i;
+			}
+		}
+	}
+}

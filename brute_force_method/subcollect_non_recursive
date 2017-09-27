@@ -1,0 +1,25 @@
+    #include <stdio.h>  
+      
+    int main()  
+    {  
+            int a[4] = {1, 2, 3, 4};  
+            int i, j, k;  
+            int t = 1 << 4;  
+            for (i = 0; i < t; i++)  
+            {  
+                    j = i;  
+                    k = 0;  
+                    printf("{");  
+                    while (j)  
+                    {  
+                            if (j & 1)  
+                            {  
+                                    printf("%d", a[k]);  
+                            }  
+                            j >>= 1;  
+                            ++k;  
+                    }  
+                    printf("}\n");  
+            }  
+            return 0;  
+    }  

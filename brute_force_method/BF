@@ -1,0 +1,30 @@
+#include <stdio.h>
+int BF(char* S,char *T){
+int i=0;
+int j=0;
+int index=0;
+while((S[i]!='\0')&&(T[j]!='\0')){
+	if(S[i]==T[j]){
+		i++;
+		j++;
+		}
+		else{
+		++index;
+		i=index;
+		j=0;
+		}
+	}
+	if(T[j]=='\0'){
+		return index+1;
+		}
+	else return 0;
+	
+	}
+
+int main(){
+	char* S="aabbcc";
+	char* T="bc";
+	printf("%d\n",BF(S,T));
+	return 0;
+	}
+
