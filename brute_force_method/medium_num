@@ -1,0 +1,14 @@
+#include <stdio.h>
+//first quicksort
+//second find the medium number
+
+int quicksort(int *a,int n){
+
+}
+int Medium(int *a){
+
+}
+int main (){
+	
+
+}
