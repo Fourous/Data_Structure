@@ -1,7 +1,11 @@
+#include <stdio.h>
+#include < math.h>
+
 struct point
 {
 	int x,y;
 };
+
 double Closest (point S[],int low,int high){
 	double d1,d2,d3,d;
 	int mid,i,j,index;

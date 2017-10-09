@@ -1,5 +1,0 @@
-#include <stdio.h>
-int minnum(int* a){
-	
-	
-}
