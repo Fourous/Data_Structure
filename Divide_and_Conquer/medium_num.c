@@ -35,6 +35,7 @@ void quicksort(int *a,int first,int end){
 }
 int main (void){
 	int n;
+	float med;
 	printf("please enter the number:    \n");
 	scanf("%d",&n);
 	srand((unsigned)time(NULL));
@@ -45,6 +46,11 @@ int main (void){
 		printf("%d\n", a[i]);
 	}
 	quicksort(a,0,n);
+	if (n%2==0)
+	{
+		med=(a[n/2]+a[(n/2)+1])/2;
+		printf("%f\n",med );
+	}else
 printf("the medium number is  %d\n",a[n/2] );
 
 	return 0;

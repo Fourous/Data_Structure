@@ -16,15 +16,16 @@ int main(void)
 {
 	int n;
 	while(n>0){
-		printf("please enter the player number\n");
+		printf("please enter the player number:     \n");
 		scanf("%d",&n);
 		if(n==0){break;}
 		table[0][0]=1;
+		circlelateschedule(0,0,n);
 		for (int i = 0; i <n; i++)
 		{
 			for (int j= 0; j <n; j++)
 			{
-				circlelateschedule(i,j,n);
+				
 				printf("%d      ",table[i][j] );
 			}
 			printf("\n");
