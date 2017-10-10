@@ -7,6 +7,7 @@
 ***
 我的个人博客：Fourous.cn
 个人微信公众号：fouroussky
+![Fourous](./Fourous.png)
 ![Alt](https://mp.weixin.qq.com/rr?timestamp=1506589665&src=3&ver=1&signature=CVf3NZFAQqce1uMt6InMowa8sMB8T8KvVMqmdXS7X6XfmujECl-AB7jHrrL4J*sO*L6e1cOdW58aEpGJW6I6XNl5ZZVcf5sisEcLi03dgtI=)
 ***
 另外，我创建了一个知识星球，喜欢算法的朋友可以加入，每天里面会发几个算法，对于提高自己的编程能力，很有帮助。
