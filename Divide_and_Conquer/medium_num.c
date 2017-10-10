@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 //first quicksort
 //second find the medium number
 
@@ -32,9 +34,18 @@ void quicksort(int *a,int first,int end){
 	}
 }
 int main (void){
-	int a[5]={3,5,2,9,4};
-	quicksort(a,0,4);
-printf("the medium number is  %d\n",a[4/2] );
+	int n;
+	printf("please enter the number:    \n");
+	scanf("%d",&n);
+	srand((unsigned)time(NULL));
+	int a[n];
+	for (int i = 0; i < n; ++i)
+	{
+		a[i]=rand()%100;
+		printf("%d\n", a[i]);
+	}
+	quicksort(a,0,n);
+printf("the medium number is  %d\n",a[n/2] );
 
 	return 0;
 

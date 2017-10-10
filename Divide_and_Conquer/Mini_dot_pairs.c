@@ -5,7 +5,35 @@ struct point
 {
 	int x,y;
 };
-
+int partition(int a[],int first,int end){
+	int i=first;
+	int j=end;
+	while(i<j){
+		while(i<j&&a[i]<=a[j])	j--;
+		if(i<j){
+			int temp=a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			i++;
+		}
+		while(i<j&&a[i]<=a[j])	i++;
+		if (i<j){
+			int temp=a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			j--;
+		}
+	}
+	return i;
+}
+void quicksort(int *a,int first,int end){
+	int pivot;
+	if(first<end){
+		pivot=partition(a,first,end);
+		quicksort(a,first,pivot-1);
+		quicksort(a,pivot+1,end);
+	}
+}
 double Closest (point S[],int low,int high){
 	double d1,d2,d3,d;
 	int mid,i,j,index;
@@ -32,7 +60,7 @@ double Closest (point S[],int low,int high){
 		P[index++] =S[i];
 	for(i=mid+1;(i<=high)&&(S[i].x-S[mid].x<d);i++)
 		P[index++]=S[i];
-	QuickSort(P,0,index-1);
+	quicksort(P,0,index-1);
 	for (int i = 0; i < index; ++i)
 	{
 		for (int j = i+1; i < index; j++)
@@ -50,5 +78,9 @@ double Closest (point S[],int low,int high){
 }
 double Distance(point a,point b){
 	return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+int main(void){
+	
+	return 0;
 }
 
