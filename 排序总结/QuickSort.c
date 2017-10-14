@@ -1,5 +1,6 @@
 /*快速排序是一种分治法，将数列分成两个独立的部分，使其中一边数列其他数大，然后递归，到最后形成
 有序的序列，首先将数进行分割partition,然后在quicksort递归调用函数。*/
+//交换排序
 #include <stdio.h>
 #include <stdlib.h>
 
