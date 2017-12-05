@@ -89,7 +89,9 @@ printf("%f\n",during);
 }
 
 int DP(int *a,int n){
-printf("dp\n");
+
+
+
 
 }
 
