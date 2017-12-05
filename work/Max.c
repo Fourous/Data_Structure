@@ -3,10 +3,15 @@
 //测试数据
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 //使用蛮力法求解最大值
 void Brute_force(int *a,int n){
 int max=0;
 int now=0;
+clock_t start, finish;
+double during;
+start=clock();
 printf("-------------------蛮力法----------------------\n");
 for(int i=0;i<n;i++){
   for(int j=i;j>=0;j--){
@@ -17,7 +22,10 @@ for(int i=0;i<n;i++){
   }
   now=0;
 }
+finish=clock();
+during=(double)(finish-start);
 printf("最大值为%d\n",max );
+printf("%f\n",during);
 }
 
 void Divide(int *a,int n){
@@ -31,7 +39,10 @@ int now=0;
 int now1=0;
 int left1=0;
 int right1=0;
+clock_t start,finish;
+double during;
 //计算左边
+start=clock();
 for(int i=0;i<mid;i++){
   for(int j=i;j>=0;j--){
     now+=a[j];
@@ -71,9 +82,10 @@ if(right>left){
 else if(left>max){
   max=left;
 }
-
-
+finish=clock();
+during=(double)(finish-start);
 printf("最大值为%d\n",max );
+printf("%f\n",during);
 }
 
 int DP(int *a,int n){
