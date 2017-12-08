@@ -88,11 +88,28 @@ printf("最大值为%d\n",max );
 printf("%f\n",during);
 }
 
-int DP(int *a,int n){
-
-
-
-
+void DP(int *a,int n){
+  printf("-----------------dp-------------------\n");
+    int temp=0;
+    int max=0;
+    clock_t start,finish;
+    double during;
+    start=clock();
+    for(int i=0;i<n;i++){
+      if(temp>0){
+        temp+=a[i];
+      }
+      else {
+        temp=a[i];
+      }
+      if(max<temp){
+        max=temp;
+      }
+    }
+    finish=clock();
+    during=(double)(finish-start);
+    printf("最大值为%d\n",max );
+    printf("%f\n",during);
 }
 
 int main(void){
@@ -110,7 +127,7 @@ printf("输入的数据为:  ");
 for(int i=0;i<len;i++){
   printf("%d  ",a[i] );
 }
-printf("请输入选项\n1:蛮力法\n2:分治法\n3:动态规划法\n");
+printf("请输入选项\n1:蛮力法\n2:分治法\n3:动态规划法\n4:一起执行\n");
 scanf("%d",&select);
 if(select==1){
   Brute_force(a,len);
@@ -119,6 +136,11 @@ else if(select==2){
   Divide(a,len);
 }
 else if(select==3){
+  DP(a,len);
+}
+else if(select==4){
+  Brute_force(a,len);
+  Divide(a,len);
   DP(a,len);
 }
   return 0;

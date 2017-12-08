@@ -111,7 +111,7 @@ void HuffmanCode(HCodeType HuffCode[MAXLEAF], HNodeType HuffNode[MAXNODE],HCodeT
         printf("%d（%c）的Huffman code is:", i+1,i+97);
         for (j = HuffCode[i].start + 1; j < n; j++)
         {
-            printf("%d", HuffCode[i].bit[j]);
+            printf("%d", HuffCode[i].bit[j]);    system("pause");
         }
         printf("  start:%d", HuffCode[i].start);
         printf("\n");
@@ -122,7 +122,6 @@ int main(void)
 
 
     int n;
-    //char pp[100];
     printf("Please input n:\n");
     scanf("%d", &n);
     HuffmanTree(HuffNode, n);
