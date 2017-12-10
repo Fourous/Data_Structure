@@ -1,3 +1,4 @@
+//哈弗曼树
 #include<stdio.h>
 #include<stdlib.h>
 typedef int ElemType;
@@ -101,6 +102,7 @@ void HuffManCoding(struct BTreeNode* FBT, int len)//len初始值为0
    static int a[10];//定义静态数组a，保存每个叶子的编码，数组长度至少是树深度减一
    if (FBT != NULL)//访问到叶子结点时输出其保存在数组a中的0和1序列编码
    {
+
        if (FBT->left == NULL && FBT->right == NULL)
        {
            int i;
@@ -146,4 +148,4 @@ void main()
    printf("%d\n", WeightPathLength(fbt, 0));
    printf("树中每个叶子结点的哈夫曼编码：\n");
    HuffManCoding(fbt, 0);
-}  
+}
