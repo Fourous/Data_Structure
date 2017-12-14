@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 struct BTreeNode {
   int data;//数据的权值
   char ch;//字符
-  int  chnum[10];
   struct BTreeNode *lchild;
   struct BTreeNode *rchild;
 };
@@ -74,7 +72,6 @@ void HuffManCoding(struct BTreeNode* hfm, int len)//len初始值为0
            int i;
            printf("结点权值为%d的编码：",hfm->data);
            for (i = 0; i < len; i++){
-             hfm->chnum[i]=a[i];
                printf("%d", a[i]);
              }
                printf("\n");
@@ -89,40 +86,85 @@ void HuffManCoding(struct BTreeNode* hfm, int len)//len初始值为0
    }
 }
 
-void HuffManEncoding(struct BTreeNode* hfm,int n){
-int select;
-char *cha;
-printf("----------------输入编码字母----------------");
-printf("输入个数        :\n");
-scanf("%d",&select);
-cha=(char *)malloc(select*sizeof(char));
-for (int i = 0; i <select; i++) {
-  printf("输入第%d个字母\n",i );
-  scanf("%s",&cha[i] );
+
+void Gethfm(struct BTreeNode* hfm, char chah,int len){
+   static int a[10];
+     if (hfm != NULL)
+  {
+
+      if (hfm->lchild == NULL && hfm->rchild == NULL&&hfm->ch==chah)
+      {
+          for (int i = 0; i < len; i++){
+              printf("%d", a[i]);
+            }
+    }
+      else
+      {
+          a[len] = 0;
+          Gethfm(hfm->lchild,chah, len + 1);
+          a[len] = 1;
+          Gethfm(hfm->rchild,chah, len + 1);
+      }
+  }
+
 }
+
+void HuffManEncoding(struct BTreeNode* hfm,int n){
+int num=0;
+char c;
+char cha[10];
+printf("----------------输入编码字母----------------\n");
+while(c!='#'){
+
+  cha[num++]=c;
+  c=getchar();
+}
+printf("\n");
 printf("你输入的字母为:  ");
-for (int j = 0; j < select; j++) {
-  printf("%s",&cha[j] );
+for (int j = 0; j <num; j++) {
+  printf("%c",cha[j] );
 }
 printf("\n");
 printf("编码为:  \n");
-for(int i=0;i<select;i++){
-while(1){
-  if(hfm->ch==cha[i]){
-    for(int j=0;j<10;j++){
-      printf("%d",hfm->chnum[i] );
-      break;
-    }
-    }
-else if(hfm->lchild!=NULL||hfm->rchild!=NULL)
-  hfm=hfm->lchild;
-else if(hfm->lchild!=NULL||hfm->rchild!=NULL)
-  hfm=hfm->rchild;
+for(int i=0;i<num;i++){
+Gethfm(hfm,cha[i],0);
 }
 }
+void Getnum(struct BTreeNode* hfm,char num[],int number){
+  struct BTreeNode* origin=hfm;
+  for(int i=0;i<number;i++){
+                 if (hfm != NULL)
+                 {
+                   if(num[i] == '0'){
+                              hfm=hfm->lchild;
+                            }
+                    else if (num[i] ==  '1'){
+                                        hfm=hfm->rchild;
+                                      }
+                                       if (hfm->lchild == NULL && hfm->rchild == NULL)
+                                                {
+                                                        printf("%c",hfm->ch);
+                                                        hfm=origin;
+                                              }
+
+              }
+      }
 }
-void HuffmanDecoding(){
-printf("2\n");
+void HuffmanDecoding(struct BTreeNode*hfm){
+int num=0;
+char c;
+char numb[10];
+printf("-------------输入编码--------------------\n");
+while (c!='#') {
+  numb[num++]=c;
+  c=getchar();
+}
+
+for(int i=0;i<num;i++){
+  printf("%c\n",numb[i]);
+}
+printf("编码为:   \n");
+Getnum(hfm,numb,num);
 }
 
 void printfT(){
@@ -163,7 +205,7 @@ HuffManCoding(hfm,0);
       continue;
     }
     else if(select==2){
-      HuffmanDecoding();
+      HuffmanDecoding(hfm);
       printf("\n");
       continue;
     }
